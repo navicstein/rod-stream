@@ -11,7 +11,7 @@ import (
 )
 
 func TestMustPrepareLauncher(t *testing.T) {
-	var l = rodstream.MustPrepareLauncher(rodstream.LauncherArgs{
+	l := rodstream.MustPrepareLauncher(rodstream.LauncherArgs{
 		UserMode: false,
 	})
 
@@ -28,7 +28,6 @@ func TestMustPrepareLauncher(t *testing.T) {
 	if extensionId[0] != rodstream.ExtensionId {
 		t.Errorf("Extension is invalid")
 	}
-
 }
 
 func TestMustCreatePage(t *testing.T) {
@@ -37,7 +36,6 @@ func TestMustCreatePage(t *testing.T) {
 	if pageInfo.CapturePage.MustInfo().Title != "Video Streamer" {
 		t.Errorf("Page title is invalid, got '%s'", pageInfo.CapturePage.MustInfo().Title)
 	}
-
 }
 
 func TestMustGetStream(t *testing.T) {
@@ -82,7 +80,7 @@ func TestMustGetStream(t *testing.T) {
 }
 
 func createBrowser() *rod.Browser {
-	var l = rodstream.MustPrepareLauncher(rodstream.LauncherArgs{
+	l := rodstream.MustPrepareLauncher(rodstream.LauncherArgs{
 		UserMode: false,
 	}).
 		Bin("/usr/bin/brave-browser").
